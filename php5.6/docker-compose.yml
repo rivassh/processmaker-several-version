@@ -33,7 +33,7 @@ services:
     networks:
       - default
   mysql:
-    image: mysql
+    image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=123789
       - MYSQL_USER=user
@@ -41,6 +41,7 @@ services:
       - MYSQL_DATABASE=processmaker
     volumes:
       - ./db:/var/lib/mysql
+      - ./custom-mysql.cnf:/etc/mysql/conf.d/custom-mysql.cnf
     networks:
       - default
   phpmyadmin:

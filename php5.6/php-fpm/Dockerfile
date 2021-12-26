@@ -37,6 +37,13 @@ RUN docker-php-ext-install bcmath \
 RUN docker-php-ext-configure pcntl --enable-pcntl && \ 
     docker-php-ext-install pcntl 
 
+RUN docker-php-ext-install mysql
+
+RUN wget http://ftp.us.debian.org/debian/pool/main/libm/libmcrypt/libmcrypt-dev_2.5.8-3.4+b1_amd64.deb \
+    && wget http://ftp.us.debian.org/debian/pool/main/libm/libmcrypt/libmcrypt4_2.5.8-3.4+b1_amd64.deb \
+    && dpkg -i libmcrypt4_2.5.8-3.4+b1_amd64.deb \
+    && dpkg -i libmcrypt-dev_2.5.8-3.4+b1_amd64.deb \
+    && docker-php-ext-install mcrypt
 
 ENV http_proxy ''
 ENV https_proxy ''
@@ -48,5 +55,5 @@ RUN chown -R nginxx:nginxx /opt
 
 
 WORKDIR /opt
- 
+
 CMD ["php-fpm", "--nodaemonize"]
