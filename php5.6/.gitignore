@@ -5,3 +5,6 @@ opt
 .env
 db
 shared
+opt
+*.sql
+
