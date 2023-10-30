@@ -1,12 +1,18 @@
 FROM php:5.6-fpm
 
+# https://lists.debian.org/debian-devel-announce/2023/03/msg00006.html
+# Debian 9/stretch moved to archive.debian.org
+RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
+RUN sed -i 's|security.debian.org|archive.debian.org/|g' /etc/apt/sources.list
+RUN sed -i '/stretch-updates/d' /etc/apt/sources.list 
+
 RUN apt-get update \
     && apt-get install -y libxml2-dev libcurl4-openssl-dev unzip wget \
     && docker-php-ext-install soap \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo \
-    && docker-php-ext-install pdo_mysql \
-    && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev  \
+    && docker-php-ext-install pdo_mysql
+RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev  \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/    \
     && docker-php-ext-install gd \
     && apt-get install -y zlib1g-dev \
