@@ -8,3 +8,4 @@ shared
 opt
 *.sql
 .vscode
+app
