@@ -7,6 +7,7 @@ RUN chmod -R 777 /tmp
 RUN ls -l /
 
 RUN apt-get update \
+    && apt-get install librdkafka-dev -y \
     && apt-get install -y libxml2-dev libcurl4-openssl-dev unzip wget \
     && docker-php-ext-install soap \
     && docker-php-ext-install mysqli \
@@ -46,6 +47,8 @@ RUN docker-php-ext-configure pcntl --enable-pcntl && \
     docker-php-ext-install pcntl 
 
 RUN docker-php-ext-install mysqli
+
+RUN pecl install rdkafka
 
 # RUN wget http://ftp.us.debian.org/debian/pool/main/libm/libmcrypt/libmcrypt-dev_2.5.8-3.4+b1_amd64.deb \
 #     && wget http://ftp.us.debian.org/debian/pool/main/libm/libmcrypt/libmcrypt4_2.5.8-3.4+b1_amd64.deb \
