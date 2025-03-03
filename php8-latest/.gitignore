@@ -5,4 +5,8 @@ opt
 .env
 db
 shared
-processmaker
+opt
+*.sql
+.vscode
+app/**
+.vscode

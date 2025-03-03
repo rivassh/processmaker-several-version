@@ -43,7 +43,7 @@ services:
       - MYSQL_PASSWORD=${DB_PASS:-123789}
       - MYSQL_DATABASE=${DB_NAME:-db}
     volumes:
-      - ${DB_PATH:-.}/db:/var/lib/mysql
+      - ../../db:/var/lib/mysql
       - /tmp:/tmp
 
       # - ./custom-mysql.cnf:/etc/mysql/conf.d/custom-mysql.cnf
