@@ -54,6 +54,15 @@ RUN pecl install --onlyreqdeps --force redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis
 
+RUN apt-get install ca-certificates curl
+RUN install -m 0755 -d /etc/apt/keyrings
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+RUN chmod a+r /etc/apt/keyrings/docker.asc
+
+RUN $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |   tee /etc/apt/sources.list.d/docker.list > /dev/null
+RUN apt update
+RUN apt install docker-ce docker-ce-cli containerd.io -y
+
 # RUN wget http://ftp.us.debian.org/debian/pool/main/libm/libmcrypt/libmcrypt-dev_2.5.8-3.4+b1_amd64.deb \
 #     && wget http://ftp.us.debian.org/debian/pool/main/libm/libmcrypt/libmcrypt4_2.5.8-3.4+b1_amd64.deb \
 #     && dpkg -i libmcrypt4_2.5.8-3.4+b1_amd64.deb \

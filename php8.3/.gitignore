@@ -11,3 +11,4 @@ opt
 app/**
 .vscode
 tmp
+mysql-data

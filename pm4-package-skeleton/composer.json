@@ -1,0 +1,34 @@
+{
+    "name": "processmaker/package-skeleton",
+    "friendly_name": "Package Skeleton",
+    "description": "Package skeleton to develop a package for ProcessMaker 4",
+    "license": "AGPL-3.0-or-later",
+    "version": "0.0.2",
+    "type": "project",
+    "authors": [
+        {
+            "name": "DevOps",
+            "email": "devops@processmaker.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "ProcessMaker\\Package\\PackageSkeleton\\": "src",
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ProcessMaker\\Package\\PackageSkeleton\\PackageServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "@php rename-project.php"
+        ]
+    }
+}

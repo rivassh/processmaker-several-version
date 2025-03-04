@@ -1,0 +1,9 @@
+node_modules/
+vendor/
+routes
+src
+tests
+public
+dist/
+.idea/
+.vscode/

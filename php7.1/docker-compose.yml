@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   fpm:
     build:
@@ -6,7 +5,7 @@ services:
       dockerfile: Dockerfile
     tty: true
     volumes:
-      - ./opt:/opt/processmaker
+      - ${APP_PATH:-./opt}:/opt/processmaker
       - ./php-fpm/processmaker.conf:/usr/local/etc/php-fpm.d/processmaker.conf
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
       - ./paths_installed.php:/opt/processmaker/workflow/engine/config/paths_installed.php

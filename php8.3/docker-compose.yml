@@ -10,6 +10,8 @@ services:
       - ${APP_PATH:-./app}:/var/www/html
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
       - ./sock:/var/run/php-fpm
+      - ../pm4-package-skeleton:/var/www/html/pm4-package-skeleton
+      - /var/run/docker.sock:/var/run/docker.sock
     links:
       - mysql
     networks:
@@ -25,7 +27,7 @@ services:
       - ${SSL_PORT:-446}:443
     volumes:
       - ${APP_PATH:-./app}:/var/www/html
-      - ${CONF_PATH:-.}/nginx.conf:/etc/nginx/nginx.conf
+      - ${CONF_PATH:-./nginx}/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./sock:/var/run/php-fpm
       - ./log/nginx:/var/log/nginx

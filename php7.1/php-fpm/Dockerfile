@@ -69,7 +69,9 @@ RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install zip
      # && docker-php-ext-configure gd \
      # --with-freetype=/usr/include/ --with-jpeg=/usr/include/   \
-RUN  docker-php-ext-install gd 
+RUN  apk add libpng
+RUN  apk add libjpeg-turbo
+RUN  docker-php-ext-configure gd --with-jpeg-dir=/usr/include/  
 
 
 

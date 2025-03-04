@@ -1,7 +1,7 @@
 log
 opt
 .env
-db
+db**
 shared
 .idea
 app
