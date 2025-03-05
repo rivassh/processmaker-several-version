@@ -1,4 +1,4 @@
-FROM php:7.1-fpm-alpine
+FROM php:7.4-fpm-alpine
 
 RUN apk add libxml2-dev
 # RUN apk add libcurl4-openssl-dev
@@ -62,6 +62,7 @@ RUN docker-php-ext-install soap
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
+RUN apk add libzip-dev zip
 RUN docker-php-ext-install zip
      # && docker-php-ext-configure gd \
      # --with-freetype=/usr/include/ --with-jpeg=/usr/include/   \

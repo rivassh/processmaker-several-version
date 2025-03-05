@@ -1,5 +1,5 @@
 services:
-  fpm:
+  pmfpm:
 
     #container_name: hamidshariati_fpm
     build:
@@ -13,10 +13,10 @@ services:
       - ../pm4-package-skeleton:/var/www/html/pm4-package-skeleton
       - /var/run/docker.sock:/var/run/docker.sock
     links:
-      - mysql
+      - pmmysql
     networks:
       - default
-  nginx:
+  pmnginx:
 
 #    container_name: hamidshariati_nginx
     build:
@@ -35,7 +35,7 @@ services:
     networks:
       - default
 
-  mysql:
+  pmmysql:
 
 #    container_name: hamidshariati_mysql
     image: mysql:latest
@@ -52,12 +52,12 @@ services:
     networks:
       - default
 
-  redis:
+  pmredis:
     image: redis
     networks:
       - default
       
-  phpmyadmin:
+  pmphpmyadmin:
 
 #    container_name: hamidshariati_pm
     image: phpmyadmin/phpmyadmin
