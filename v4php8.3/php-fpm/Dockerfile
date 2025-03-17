@@ -24,7 +24,7 @@ RUN apt-get update \
     && apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev \
     && apt-get autoremove -y
 
-RUN curl -sS https://getcomposer.org/installer | php \ 
+RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
     &&  rm -rf /tmp/pear \
     && rm -rf /var/lib/apt/lists/* \
@@ -43,7 +43,7 @@ RUN docker-php-ext-install bcmath \
     && docker-php-ext-install sockets
 
 
-RUN docker-php-ext-configure pcntl --enable-pcntl && \ 
+RUN docker-php-ext-configure pcntl --enable-pcntl && \
     docker-php-ext-install pcntl 
 
 RUN docker-php-ext-install mysqli
@@ -54,6 +54,7 @@ RUN pecl install --onlyreqdeps --force redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis
 
+# need vpn in iran, comment and do it after build, then commit
 RUN apt-get install ca-certificates curl
 RUN install -m 0755 -d /etc/apt/keyrings
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
