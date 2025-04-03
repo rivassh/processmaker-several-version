@@ -1,3 +1,0 @@
-<?php
-
-// Console routes

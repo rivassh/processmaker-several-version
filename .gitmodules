@@ -1,0 +1,6 @@
+[submodule "package-skeleton"]
+	path = package-skeleton
+	url = git@github.com:BPMNmaker/package-skeleton.git
+[submodule "pm4-package-skeleton"]
+	path = pm4-package-skeleton
+	url = git@github.com:BPMNmaker/package-skeleton.git

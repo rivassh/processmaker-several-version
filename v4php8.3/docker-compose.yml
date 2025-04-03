@@ -10,7 +10,7 @@ services:
       - ${APP_PATH:-./app}:/var/www/html
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
       - ./sock:/var/run/php-fpm
-      - ../pm4-package-skeleton:/var/www/html/pm4-package-skeleton
+      - ${PACKAGES:-../pm4-package-skeleton}:/var/www/html/packages
       - /var/run/docker.sock:/var/run/docker.sock
     links:
       - pmmysql
