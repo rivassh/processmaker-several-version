@@ -27,6 +27,12 @@ RUN docker-php-ext-install gd
 RUN apk del libjpeg-turbo-dev libwebp-dev zlib-dev libxpm-dev libpng-dev
 # RUN  docker-php-ext-configure gd --with-jpeg-dir=/usr/include/  
 
+RUN apk add libmcrypt-dev
+RUN docker-php-ext-install mcrypt
+RUN apk add ldb-dev libldap openldap-dev
+RUN docker-php-ext-install ldap
+
+
 ENV http_proxy ''
 ENV https_proxy ''
 

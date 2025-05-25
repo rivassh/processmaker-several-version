@@ -6,9 +6,9 @@ services:
     tty: true
     volumes:
       - ${APP_PATH:-./opt}:/opt/processmaker
+      - ${PLUGINS_PATH:-./opt}:/opt/plugins
       - ./php-fpm/processmaker.conf:/usr/local/etc/php-fpm.d/processmaker.conf
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
-      - ./paths_installed.php:/opt/processmaker/workflow/engine/config/paths_installed.php
       - ./shared:/opt/processmaker/shared
       - sock:/var/run/php-fpm
     links:
@@ -43,6 +43,16 @@ services:
       - /tmp:/tmp
     networks:
       - default
+  phpmyadmin:
+
+#    container_name: hamidshariati_pm
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8083:80
+    environment:
+      - PMA_HOST=mysql
+    volumes:
+      - ./tmp:/tmp
 volumes:
   sock: null
 networks:
