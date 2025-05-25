@@ -21,7 +21,7 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
-      - ${WEB_PORT:-83}:80
+      - ${WEB_PORT:-80}:80
       - ${SSL_PORT:-446}:443
     volumes:
       - ${APP_PATH:-./app}:/var/www/html
