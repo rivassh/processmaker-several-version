@@ -24,7 +24,7 @@ services:
     volumes:
       - ./opt:/opt/processmaker
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/processmaker.conf:/etc/nginx/conf.d/processmaker.conf
+      - ./nginx/processmaker.conf:/etc/nginx/conf.d/default.conf
       - sock:/var/run/php-fpm
       - ./log/nginx:/var/log/nginx
     extra_hosts:
@@ -43,6 +43,12 @@ services:
       - /tmp:/tmp
     networks:
       - default
+
+  redis:
+    image: redis
+    networks:
+      - default
+
   phpmyadmin:
 
 #    container_name: hamidshariati_pm
