@@ -6,7 +6,7 @@ services:
     tty: true
     volumes:
       - ${APP_PATH:-./opt}:/opt/processmaker
-      - ${PLUGINS_PATH:-./opt}:/opt/plugins
+      - ${PLUGINS_PATH:-./plugins}:/opt/plugins
       - ./php-fpm/processmaker.conf:/usr/local/etc/php-fpm.d/processmaker.conf
       - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
       - ./shared:/opt/processmaker/shared
@@ -38,9 +38,9 @@ services:
       - MYSQL_USER=user
       - MYSQL_PASSWORD=123789
       - MYSQL_DATABASE=processmaker
-    volumes:
-      - ./db:/var/lib/mysql
-      - /tmp:/tmp
+#    volumes:
+#      - ./db:/var/lib/mysql
+#      - /tmp:/tmp
     networks:
       - default
 
