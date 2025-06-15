@@ -38,9 +38,9 @@ services:
       - MYSQL_USER=user
       - MYSQL_PASSWORD=123789
       - MYSQL_DATABASE=processmaker
-#    volumes:
-#      - ./db:/var/lib/mysql
-#      - /tmp:/tmp
+    volumes:
+      - ./db:/var/lib/mysql
+      - /tmp:/tmp
     networks:
       - default
 
@@ -54,13 +54,14 @@ services:
 #    container_name: hamidshariati_pm
     image: phpmyadmin/phpmyadmin
     ports:
-      - 8083:80
+      - ${PMA_PORT:-8083}:80
     environment:
       - PMA_HOST=mysql
     volumes:
       - ./tmp:/tmp
 volumes:
   sock: null
+  db: 
 networks:
   default:
 
