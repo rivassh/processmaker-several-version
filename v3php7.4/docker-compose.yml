@@ -1,5 +1,6 @@
 services:
   fpm:
+    image: hmdshariati/pm3-php7.4
     build:
       context: ./php-fpm
       dockerfile: Dockerfile
@@ -16,6 +17,7 @@ services:
     networks:
       - default
   nginx:
+    image: hmdshariati/pm3-nginx
     build:
       context: ./nginx
       dockerfile: Dockerfile
