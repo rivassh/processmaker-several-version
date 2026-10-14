@@ -4,3 +4,12 @@
 [submodule "pm4-package-skeleton"]
 	path = pm4-package-skeleton
 	url = git@github.com:BPMNmaker/package-skeleton.git
+[submodule "processmaker3"]
+	path = processmaker3
+	url = https://github.com/tomolimo/processmaker.git
+[submodule "processmaker-community"]
+	path = processmaker-community
+	url = https://github.com/tomolimo/processmaker-community.git
+[submodule "processmaker4"]
+	path = processmaker4
+	url = https://github.com/ProcessMaker/processmaker.git

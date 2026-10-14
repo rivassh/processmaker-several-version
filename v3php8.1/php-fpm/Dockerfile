@@ -1,6 +1,7 @@
 FROM php:8.1-fpm-alpine
 
-RUN apk add libxml2-dev
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
+    && apk add --no-cache libxml2-dev
 
 RUN  apk add git
 
